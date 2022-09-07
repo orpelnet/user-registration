@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  db:
+    ports:
+     - 1433:1433
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: Password!
+    image: liaisonintl/mssql-server-linux
+    networks:
+      default:
+        ipv4_address: 10.20.0.250
+      proxy:
+        aliases:
+          - db.linkconsig.localtest.me
+    volumes:
+      - sql-server:/var/opt/mssql
+
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+        - subnet: '10.20.0.0/24'
+  proxy:
+    external: true
+
+volumes:
+  sql-server:

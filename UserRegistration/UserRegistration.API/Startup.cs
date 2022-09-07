@@ -1,13 +1,18 @@
+using Dapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Text.Json.Serialization;
-using UsuariosRegistration.API.User.Domain.Repositories;
-using UsuariosRegistration.API.User.Infrastructure;
-using UsuariosRegistration.API.User.Service;
+using UsuariosRegistration.API.Usuarios.Infrastructure;
+using UsuariosRegistration.API.Usuarios.Domain.Repositories;
+using UsuariosRegistration.API.Usuarios.Service;
+using UserRegistration.API.Escolaridades.Service;
+using UserRegistration.API.Escolaridades.Domain.Repositories;
+using UserRegistration.API.Escolaridades.Infrastructure;
 
 namespace UsuariosRegistration.API
 {
@@ -28,11 +33,14 @@ namespace UsuariosRegistration.API
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+
             services.AddHttpContextAccessor();
 
             services.AddScoped<IUsuarioService, UsuarioService>();
+            services.AddScoped<IEscolaridadeService, EscolaridadeService>();
 
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<IEscolaridadeRepository, EscolaridadeRepository>();
 
             services.AddRouting();
 
