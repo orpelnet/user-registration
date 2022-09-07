@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "WSL": {
+      "commandName": "WSL2"
+    },
+    "SGE.Migrations": {
+      "commandName": "Project",
+      "commandLineArgs": "UP"
+    }
+  }
+}
