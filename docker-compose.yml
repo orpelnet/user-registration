@@ -6,14 +6,14 @@ services:
      - 1433:1433
     environment:
       ACCEPT_EULA: Y
-      SA_PASSWORD: Password!
+      SA_PASSWORD: !Password!
     image: liaisonintl/mssql-server-linux
     networks:
       default:
         ipv4_address: 10.20.0.250
       proxy:
         aliases:
-          - db.linkconsig.localtest.me
+          - db.user-registration.localtest.me
     volumes:
       - sql-server:/var/opt/mssql
 
