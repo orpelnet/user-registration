@@ -17,11 +17,11 @@ namespace UsuariosRegistration.API.User.Application
         }
 
         [HttpPost]
-        public async Task<ActionResult<UsuarioDTO>> Create([FromBody] UsuarioDTO Usuarios)
+        public ActionResult<UsuarioDTO> Create([FromBody] UsuarioDTO Usuario)
         {
             try
             {
-                var result = await UsuariosService.Create(Usuarios);
+                var result = UsuariosService.Create(Usuario);
 
                 if (result is null) return NotFound();
 
@@ -37,13 +37,13 @@ namespace UsuariosRegistration.API.User.Application
             }
         }
 
-        public async Task<ActionResult<UsuarioResponse>> GetAll()
+        public ActionResult<UsuarioResponse> GetAll()
         {
             try
             {
-                var result = await UsuariosService.GetAll();
+                var result = UsuariosService.GetAll();
 
-                if (result is null || result.Usuarioss.Count <= 0) return NotFound();
+                if (result is null || result.Usuarios.Count <= 0) return NotFound();
 
                 return Ok(result);
             }
@@ -58,11 +58,11 @@ namespace UsuariosRegistration.API.User.Application
         }
 
         [HttpGet("{UsuariosId}")]
-        public async Task<ActionResult<UsuarioDTO>> Get(int UsuariosId)
+        public ActionResult<UsuarioDTO> Get(int UsuariosId)
         {
             try
             {
-                var result = await UsuariosService.Get(UsuariosId);
+                var result = UsuariosService.Get(UsuariosId);
 
                 if (result is null) return NotFound();
 
@@ -79,13 +79,13 @@ namespace UsuariosRegistration.API.User.Application
         }
 
         [HttpDelete("{UsuariosId}")]
-        public async Task<ActionResult<bool>> Delete(int UsuariosId)
+        public ActionResult<bool> Delete(int UsuariosId)
         {
             try
             {
-                var result = await UsuariosService.Delete(UsuariosId);
+                var result = UsuariosService.Delete(UsuariosId);
 
-                if (result) return NotFound();
+                if (!result) return NotFound();
 
                 return Ok(result);
             }
@@ -100,13 +100,13 @@ namespace UsuariosRegistration.API.User.Application
         }
 
         [HttpPut]
-        public async Task<ActionResult<UsuarioDTO>> Update([FromBody] UsuarioDTO Usuarios)
+        public ActionResult<bool> Update([FromBody] UsuarioDTO usuarios)
         {
             try
             {
-                var result = await UsuariosService.Update(Usuarios);
+                var result = UsuariosService.Update(usuarios);
 
-                if (result is null) return NotFound();
+                if (!result) return NotFound();
 
                 return Ok(result);
             }

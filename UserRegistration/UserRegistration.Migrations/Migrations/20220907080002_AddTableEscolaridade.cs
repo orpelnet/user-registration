@@ -2,8 +2,8 @@
 
 namespace UserRegistration.Migrations.Migrations
 {
-    [Migration(20220907075900, "add table escolaridade")]
-    public class _20220907075900_AddTableEscolaridade : Migration
+    [Migration(20220907080002, "add table escolaridade")]
+    public class _20220907080002_AddTableEscolaridade : Migration
     {
         private const string TABLE_NAME = "Escolaridade";
 

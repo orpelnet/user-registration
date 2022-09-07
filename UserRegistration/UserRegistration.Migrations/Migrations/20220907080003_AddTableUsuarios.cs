@@ -2,8 +2,8 @@
 
 namespace UserRegistration.Migrations.Migrations
 {
-    [Migration(20220907075700, "add table usuarios")]
-    public class _20220907075700_AddTableUsuarios : Migration
+    [Migration(20220907080003, "add table usuarios")]
+    public class _20220907080003_AddTableUsuarios : Migration
     {
         private const string TABLE_NAME = "Usuarios";
 
@@ -21,8 +21,8 @@ namespace UserRegistration.Migrations.Migrations
               .WithColumn("Sobrenome").AsString(255).NotNullable()
               .WithColumn("Email").AsString(255).NotNullable()
               .WithColumn("DataNascimento").AsDateTime().NotNullable()
-              .WithColumn("EscolaridadeId").AsInt32().ForeignKey("Fk_Usuario_Escolaridade", "Usuarios", "Id")
-              .WithColumn("HistoricoEscolarId").AsInt32().ForeignKey("Fk_Usuario_HistoricoEscolar", "Usuarios", "Id");
+              .WithColumn("EscolaridadeId").AsInt32().ForeignKey("Fk_Usuario_Escolaridade", "Escolaridade", "Id")
+              .WithColumn("HistoricoEscolarId").AsInt32().ForeignKey("Fk_Usuario_HistoricoEscolar", "HistoricoEscolar", "Id");
         }
     }
 }

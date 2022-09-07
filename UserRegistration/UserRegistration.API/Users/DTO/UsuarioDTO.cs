@@ -14,5 +14,6 @@ namespace UsuariosRegistration.API.User.DTO
         public int HistoricoEscolarId { get; set; }
         public virtual Escolaridade Escolaridade { get; set; }
         public virtual HistoricoEscolar HistoricoEscolar { get; set; }
+        public string EscolaridadeDescricao { get; set; }
     }
 }

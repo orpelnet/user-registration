@@ -45,7 +45,7 @@ namespace SGE.Migrations
                 {
                     runner.AddSqlServer2016()
                         .WithGlobalConnectionString(Configuration["DatabaseSettings:ConnectionString"])
-                        .ScanIn(typeof(_20220907075700_AddTableUsuarios).Assembly).For.Migrations();
+                        .ScanIn(typeof(_20220907080001_AddTableHistoricoEscolar).Assembly).For.Migrations();
                 })
                 .AddLogging(lb => lb.AddFluentMigratorConsole())
                 .BuildServiceProvider(true);

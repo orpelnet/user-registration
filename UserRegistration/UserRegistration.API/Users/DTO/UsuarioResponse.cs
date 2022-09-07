@@ -6,9 +6,9 @@ namespace UsuariosRegistration.API.User.DTO
     {
         public UsuarioResponse()
         {
-            Usuarioss = new List<UsuarioDTO>();
+            Usuarios = new List<UsuarioDTO>();
         }
 
-        public List<UsuarioDTO> Usuarioss { get; set; }
+        public List<UsuarioDTO> Usuarios { get; set; }
     }
 }
